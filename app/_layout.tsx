@@ -29,10 +29,21 @@ export default function RootLayout() {
 
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
-      </Stack>
+        <Stack>
+            <Stack.Screen name="index" options={{ headerShown: false }} />
+            <Stack.Screen
+                name="news"
+                options={{
+                    headerShown: true,
+                    headerTitle: "News Detail",
+                    headerStyle: {
+                        backgroundColor: '#000',
+                    },
+                    headerTintColor: '#fff',
+                }}
+            />
+            <Stack.Screen name="+not-found" />
+        </Stack>
       <StatusBar style="auto" />
     </ThemeProvider>
   );
